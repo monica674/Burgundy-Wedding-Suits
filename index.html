@@ -288,6 +288,10 @@
             position: relative;
             overflow: hidden;
             height: 450px;
+            background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .product-image img {
@@ -299,6 +303,32 @@
 
         .product-card:hover .product-image img {
             transform: scale(1.1);
+        }
+
+        /* PLACEHOLDER FOR IMAGES */
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #8B1538;
+            background: linear-gradient(45deg, #f8f8f8, #e8e8e8);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .placeholder-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #8B1538;
+            opacity: 0.5;
+        }
+
+        .placeholder-text {
+            font-size: 0.9rem;
+            color: #666;
         }
 
         .product-badge {
@@ -473,6 +503,7 @@
         .style-image {
             position: relative;
             height: 100%;
+            background: linear-gradient(45deg, #f5f5f5, #e0e0e0);
         }
 
         .style-image img {
@@ -946,6 +977,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-suitcase placeholder-icon"></i>
+                                <div class="placeholder-text">Upload burgundy suit image<br>Size: 600x800px</div>
+                            </div>
+                            <!-- <img src="images/suit1.jpg" alt="Classic Burgundy Blazer"> -->
                             <div class="product-badge">Bestseller</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -966,6 +1003,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-vest placeholder-icon"></i>
+                                <div class="placeholder-text">Upload slim fit suit image</div>
+                            </div>
+                            <!-- <img src="images/suit2.jpg" alt="Slim Fit Wedding Suit"> -->
                             <div class="product-badge new">New</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -986,6 +1029,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-tshirt placeholder-icon"></i>
+                                <div class="placeholder-text">Upload velvet blazer image</div>
+                            </div>
+                            <!-- <img src="images/suit3.jpg" alt="Premium Velvet Blazer"> -->
                             <div class="product-badge premium">Premium</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -1006,6 +1055,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-user-tie placeholder-icon"></i>
+                                <div class="placeholder-text">Upload 3-piece suit image</div>
+                            </div>
+                            <!-- <img src="images/suit4.jpg" alt="3-Piece Wedding Ensemble"> -->
                             <div class="product-badge">Popular</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -1026,6 +1081,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-jacket placeholder-icon"></i>
+                                <div class="placeholder-text">Upload double breasted blazer image</div>
+                            </div>
+                            <!-- <img src="images/suit5.jpg" alt="Double Breasted Blazer"> -->
                             <div class="product-badge">Trending</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -1046,6 +1107,12 @@
                 <div class="product-card animate-on-scroll">
                     <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
                         <div class="product-image">
+                            <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                            <div class="image-placeholder">
+                                <i class="fas fa-hat-cowboy-side placeholder-icon"></i>
+                                <div class="placeholder-text">Upload tuxedo style suit image</div>
+                            </div>
+                            <!-- <img src="images/suit6.jpg" alt="Tuxedo Style Suit"> -->
                             <div class="product-badge premium">Exclusive</div>
                             <div class="product-overlay">
                                 <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
@@ -1120,6 +1187,12 @@
             <div class="styles-grid">
                 <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
                     <div class="style-image">
+                        <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                        <div class="image-placeholder" style="color: #fff; background: rgba(139, 21, 56, 0.7);">
+                            <i class="fas fa-gem placeholder-icon"></i>
+                            <div class="placeholder-text">Classic style image here</div>
+                        </div>
+                        <!-- <img src="images/classic-style.jpg" alt="Classic Elegance Style"> -->
                         <div class="style-overlay">
                             <h3>Classic Elegance</h3>
                             <p>Timeless designs for traditional weddings</p>
@@ -1130,6 +1203,12 @@
                 
                 <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
                     <div class="style-image">
+                        <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                        <div class="image-placeholder" style="color: #fff; background: rgba(139, 21, 56, 0.7);">
+                            <i class="fas fa-star placeholder-icon"></i>
+                            <div class="placeholder-text">Modern style image here</div>
+                        </div>
+                        <!-- <img src="images/modern-style.jpg" alt="Modern Sophistication Style"> -->
                         <div class="style-overlay">
                             <h3>Modern Sophistication</h3>
                             <p>Contemporary cuts for the modern groom</p>
@@ -1140,6 +1219,12 @@
                 
                 <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
                     <div class="style-image">
+                        <!-- REPLACE THIS IMAGE SOURCE WITH YOUR ACTUAL IMAGE -->
+                        <div class="image-placeholder" style="color: #fff; background: rgba(139, 21, 56, 0.7);">
+                            <i class="fas fa-sun placeholder-icon"></i>
+                            <div class="placeholder-text">Casual style image here</div>
+                        </div>
+                        <!-- <img src="images/casual-style.jpg" alt="Smart Casual Style"> -->
                         <div class="style-overlay">
                             <h3>Smart Casual</h3>
                             <p>Relaxed yet refined for informal events</p>
