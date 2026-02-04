@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://monica674.github.io/Burgundy-Wedding-Suits/sitemap.xml
