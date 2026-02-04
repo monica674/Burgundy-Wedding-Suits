@@ -7,89 +7,12 @@
     <!-- Main homepage -->
     <url>
         <loc>https://monica674.github.io/Burgundy-Wedding-Suits/</loc>
-        <lastmod>2024-01-15</lastmod>
+        <lastmod>2024-01-28</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     
-    <!-- Main content sections (anchor links) -->
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#collection</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
+    <!-- Important product category pages (if you had separate pages) -->
+    <!-- Since you have a single page site, only include main page -->
     
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#features</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#gallery</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#testimonials</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#contact</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.6</priority>
-    </url>
-    
-    <!-- Product categories (if applicable) -->
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#burgundy-tuxedos</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#burgundy-blazers</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#burgundy-three-piece</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.9</priority>
-    </url>
-    
-    <!-- FAQ/Information pages (if they exist) -->
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#sizing-guide</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#care-instructions</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-    
-    <url>
-        <loc>https://monica674.github.io/Burgundy-Wedding-Suits/#shipping-returns</loc>
-        <lastmod>2024-01-15</lastmod>
-        <changefreq>yearly</changefreq>
-        <priority>0.5</priority>
-    </url>
-
 </urlset>
