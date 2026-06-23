@@ -1,1497 +1,538 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Souk Essentials — Everyday Essentials, Curated for You</title>
+<meta name="description" content="Souk Essentials — Shop Tech & Office, Baby & Kids, Beauty & Skincare and Home & Living. Quality essentials delivered to your door.">
+<style>
+  :root{
+    --primary:#1b4d3e;--primary-dark:#143b30;--accent:#e0a458;--accent-dark:#c98a3a;
+    --bg:#faf7f2;--surface:#ffffff;--text:#23211e;--muted:#6f6a63;--border:#e7e0d6;
+    --radius:14px;--shadow:0 6px 24px rgba(20,59,48,.08);--shadow-hover:0 12px 34px rgba(20,59,48,.16);--max:1240px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Segoe UI',system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .btn{display:inline-block;padding:13px 26px;border-radius:50px;font-weight:600;cursor:pointer;border:none;transition:.25s;font-size:.95rem}
+  .btn-primary{background:var(--accent);color:#3a2a10}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+  .btn-outline{background:transparent;border:2px solid #fff;color:#fff}
+  .btn-outline:hover{background:#fff;color:var(--primary)}
+  .btn-full{width:100%;text-align:center}
+  .section{padding:70px 0}
+  .section-head{text-align:center;max-width:640px;margin:0 auto 46px}
+  .section-head h2{font-size:2rem;color:var(--primary);margin-bottom:10px}
+  .section-head p{color:var(--muted)}
+  .eyebrow{display:inline-block;letter-spacing:2px;text-transform:uppercase;font-size:.75rem;font-weight:700;color:var(--accent-dark);margin-bottom:8px}
 
-    <meta name="description"
-          content="Discover premium burgundy wedding suits and blazers from BlackBerrys. Perfect for grooms, groomsmen, and special occasions.">
+  .topbar{background:var(--primary-dark);color:#f3ede2;font-size:.82rem;text-align:center;padding:8px 10px}
+  header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+  .nav{display:flex;align-items:center;gap:20px;padding:14px 20px;max-width:var(--max);margin:0 auto}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.35rem;color:var(--primary)}
+  .logo .mark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center;color:#fff;font-size:1.1rem}
+  .logo span small{display:block;font-size:.6rem;font-weight:600;letter-spacing:3px;color:var(--accent-dark);text-transform:uppercase}
+  .search{flex:1;display:flex;max-width:520px;margin:0 auto;border:1px solid var(--border);border-radius:50px;overflow:hidden;background:#fff}
+  .search input{flex:1;border:none;outline:none;padding:11px 18px;font-size:.92rem;background:transparent}
+  .search button{border:none;background:var(--primary);color:#fff;padding:0 22px;cursor:pointer;font-weight:600}
+  .nav-actions{display:flex;align-items:center;gap:18px}
+  .nav-actions a,.nav-actions button.linklike{font-weight:500;color:var(--text);display:flex;align-items:center;gap:6px;font-size:.92rem;background:none;border:none;cursor:pointer}
+  .nav-actions a:hover,.nav-actions button.linklike:hover{color:var(--primary)}
+  .cart-badge{background:var(--accent);color:#3a2a10;border-radius:50px;font-size:.7rem;padding:1px 7px;font-weight:700}
+  .menu-toggle{display:none;font-size:1.6rem;background:none;border:none;cursor:pointer;color:var(--primary)}
+  .mainmenu{background:var(--primary)}
+  .mainmenu ul{display:flex;gap:8px;list-style:none;max-width:var(--max);margin:0 auto;padding:0 20px;flex-wrap:wrap}
+  .mainmenu a{color:#f3ede2;padding:14px 16px;display:block;font-weight:500;font-size:.92rem;transition:.2s}
+  .mainmenu a:hover{background:var(--primary-dark);color:var(--accent)}
 
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification"
-          content="QnQfiJUGd7HCt5NURGFP1HTb5V7n_XtgjSyXCX_9kxE">
+  .hero{position:relative;overflow:hidden;background:#000}
+  .slides{display:flex;transition:transform .7s ease}
+  .slide{min-width:100%;position:relative}
+  .slide img{width:100%;height:520px;object-fit:cover;filter:brightness(.72)}
+  .slide-caption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 8%;color:#fff;max-width:680px}
+  .slide-caption .eyebrow{color:var(--accent)}
+  .slide-caption h1{font-size:2.8rem;line-height:1.15;margin-bottom:14px;text-shadow:0 2px 18px rgba(0,0,0,.4)}
+  .slide-caption p{font-size:1.1rem;margin-bottom:26px;max-width:480px;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+  .slide-caption .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .slider-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.85);border:none;width:46px;height:46px;border-radius:50%;font-size:1.4rem;cursor:pointer;color:var(--primary);display:grid;place-items:center;transition:.2s;z-index:5}
+  .slider-btn:hover{background:#fff}.prev{left:18px}.next{right:18px}
+  .dots{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:5}
+  .dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.2s}
+  .dot.active{background:var(--accent);width:30px;border-radius:50px}
 
-    <title>Burgundy Wedding Suits - Premium BlackBerrys Blazers</title>
+  .trust{background:var(--surface);border-bottom:1px solid var(--border)}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:26px 0}
+  .trust-item{display:flex;align-items:center;gap:12px;justify-content:center}
+  .trust-item .ico{font-size:1.6rem}
+  .trust-item strong{display:block;font-size:.95rem}.trust-item small{color:var(--muted);font-size:.8rem}
+
+  .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .cat-card{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);background:#fff;transition:.3s;aspect-ratio:3/4}
+  .cat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-hover)}
+  .cat-card img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .cat-card:hover img{transform:scale(1.07)}
+  .cat-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;background:linear-gradient(to top,rgba(20,59,48,.85) 5%,rgba(20,59,48,.15) 55%,transparent)}
+  .cat-overlay h3{color:#fff;font-size:1.25rem}
+  .cat-overlay span{color:var(--accent);font-weight:600;font-size:.85rem;margin-top:4px;display:inline-flex;align-items:center;gap:5px}
+
+  .tabs{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:34px}
+  .tab{padding:9px 20px;border-radius:50px;border:1px solid var(--border);background:#fff;cursor:pointer;font-weight:500;font-size:.88rem;transition:.2s}
+  .tab.active,.tab:hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+  .product{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s;display:flex;flex-direction:column}
+  .product:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+  .product-img{position:relative;aspect-ratio:1/1;background:#f1ece4;overflow:hidden;cursor:pointer}
+  .product-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .product:hover .product-img img{transform:scale(1.06)}
+  .tag{position:absolute;top:12px;left:12px;background:var(--accent);color:#3a2a10;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:50px}
+  .tag.new{background:var(--primary);color:#fff}
+  .wish{position:absolute;top:10px;right:10px;background:#fff;border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;box-shadow:var(--shadow)}
+  .product-body{padding:16px;display:flex;flex-direction:column;flex:1}
+  .product-cat{font-size:.72rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+  .product h4{font-size:1rem;margin:5px 0 6px;cursor:pointer}
+  .product h4:hover{color:var(--primary)}
+  .stars{color:var(--accent);font-size:.85rem;margin-bottom:10px}
+  .stars small{color:var(--muted);margin-left:4px}
+  .price-row{margin-top:auto;display:flex;align-items:center;justify-content:space-between}
+  .price{font-weight:800;color:var(--primary);font-size:1.15rem}
+  .price del{color:var(--muted);font-weight:400;font-size:.85rem;margin-left:6px}
+  .add-btn{background:var(--primary);color:#fff;border:none;border-radius:10px;padding:9px 14px;cursor:pointer;font-weight:600;font-size:.82rem;transition:.2s}
+  .add-btn:hover{background:var(--accent);color:#3a2a10}
+
+  .promo{background:linear-gradient(120deg,var(--primary),var(--primary-dark));color:#fff;border-radius:22px;padding:54px 40px;text-align:center;position:relative;overflow:hidden}
+  .promo::before{content:"";position:absolute;width:300px;height:300px;background:var(--accent);opacity:.15;border-radius:50%;top:-120px;right:-80px}
+  .promo h2{font-size:2.1rem;margin-bottom:12px;position:relative}
+  .promo p{opacity:.9;margin-bottom:24px;position:relative}
+
+  /* BLOG */
+  .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .post{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s;display:flex;flex-direction:column}
+  .post:hover{transform:translateY(-5px);box-shadow:var(--shadow-hover)}
+  .post-img{aspect-ratio:16/10;overflow:hidden}
+  .post-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .post:hover .post-img img{transform:scale(1.06)}
+  .post-body{padding:20px;display:flex;flex-direction:column;flex:1}
+  .post-meta{font-size:.75rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-bottom:8px}
+  .post h3{font-size:1.12rem;margin-bottom:10px;line-height:1.35}
+  .post p{font-size:.9rem;color:var(--muted);flex:1}
+  .post .read{margin-top:14px;color:var(--primary);font-weight:600;font-size:.9rem}
+
+  .news{background:var(--surface);border:1px solid var(--border);border-radius:22px;padding:48px;text-align:center}
+  .news h2{color:var(--primary);font-size:1.8rem;margin-bottom:10px}
+  .news p{color:var(--muted);margin-bottom:24px}
+  .news form{display:flex;max-width:460px;margin:0 auto;gap:10px;flex-wrap:wrap;justify-content:center}
+  .news input{flex:1;min-width:230px;padding:13px 18px;border:1px solid var(--border);border-radius:50px;outline:none;font-size:.95rem}
+
+  footer{background:var(--primary-dark);color:#cbd9d2;padding:60px 0 24px;margin-top:20px}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  footer h4{color:#fff;margin-bottom:16px;font-size:1rem}
+  footer ul{list-style:none}footer li{margin-bottom:9px}
+  footer a:hover{color:var(--accent)}
+  .footer-logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.3rem;color:#fff;margin-bottom:14px}
+  .socials{display:flex;gap:12px;margin-top:16px}
+  .socials a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:1rem}
+  .socials a:hover{background:var(--accent);color:#3a2a10}
+  .footer-bottom{border-top:1px solid rgba(255,255,255,.12);margin-top:40px;padding-top:20px;text-align:center;font-size:.85rem;opacity:.8}
+
+  /* OVERLAY + DRAWER */
+  .overlay{position:fixed;inset:0;background:rgba(20,30,25,.55);opacity:0;visibility:hidden;transition:.3s;z-index:200}
+  .overlay.show{opacity:1;visibility:visible}
+  .drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:90vw;background:#fff;z-index:300;display:flex;flex-direction:column;transform:translateX(100%);transition:.35s ease;box-shadow:-10px 0 40px rgba(0,0,0,.18)}
+  .drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;padding:20px;border-bottom:1px solid var(--border)}
+  .drawer-head h3{color:var(--primary);font-size:1.2rem}
+  .close-x{background:none;border:none;font-size:1.6rem;cursor:pointer;color:var(--muted)}
+  .cart-items{flex:1;overflow-y:auto;padding:14px 20px}
+  .cart-empty{text-align:center;color:var(--muted);padding:50px 10px}
+  .cart-row{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--border)}
+  .cart-row img{width:70px;height:70px;border-radius:10px;object-fit:cover}
+  .cart-info{flex:1}
+  .cart-info h5{font-size:.92rem;margin-bottom:3px}
+  .cart-info .c-cat{font-size:.7rem;color:var(--accent-dark);text-transform:uppercase;letter-spacing:.5px}
+  .qty{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:8px;margin-top:8px}
+  .qty button{width:28px;height:28px;border:none;background:#f3ede2;cursor:pointer;font-size:1rem;color:var(--primary)}
+  .qty span{width:34px;text-align:center;font-size:.9rem}
+  .c-price{font-weight:700;color:var(--primary);white-space:nowrap}
+  .remove{background:none;border:none;color:#c0392b;font-size:.78rem;cursor:pointer;margin-top:6px;display:block}
+  .drawer-foot{padding:20px;border-top:1px solid var(--border)}
+  .sub-row{display:flex;justify-content:space-between;margin-bottom:6px;font-size:.92rem;color:var(--muted)}
+  .total-row{display:flex;justify-content:space-between;font-weight:800;font-size:1.2rem;color:var(--primary);margin:10px 0 16px}
+
+  /* PRODUCT MODAL */
+  .modal{position:fixed;inset:0;display:none;place-items:center;z-index:300;padding:20px}
+  .modal.open{display:grid}
+  .modal-card{background:#fff;border-radius:18px;max-width:840px;width:100%;display:grid;grid-template-columns:1fr 1fr;overflow:hidden;max-height:90vh;box-shadow:0 30px 70px rgba(0,0,0,.3)}
+  .modal-card .m-img{background:#f1ece4}
+  .modal-card .m-img img{width:100%;height:100%;object-fit:cover;min-height:340px}
+  .m-body{padding:32px;overflow-y:auto}
+  .m-body .product-cat{margin-bottom:6px;display:block}
+  .m-body h2{color:var(--primary);font-size:1.6rem;margin-bottom:8px}
+  .m-body .m-price{font-size:1.6rem;font-weight:800;color:var(--primary);margin:14px 0}
+  .m-body .m-price del{font-size:1rem;color:var(--muted);font-weight:400;margin-left:8px}
+  .m-body p.desc{color:var(--muted);font-size:.95rem;margin-bottom:18px}
+  .m-feats{list-style:none;margin-bottom:20px}
+  .m-feats li{padding:5px 0;font-size:.9rem;display:flex;gap:8px}
+  .m-feats li::before{content:"✓";color:var(--accent-dark);font-weight:800}
+
+  /* TOAST */
+  .toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--primary);color:#fff;padding:14px 26px;border-radius:50px;font-weight:600;z-index:400;transition:.4s;box-shadow:var(--shadow-hover)}
+  .toast.show{transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:980px){
+    .cat-grid,.product-grid{grid-template-columns:repeat(2,1fr)}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .blog-grid{grid-template-columns:1fr 1fr}
+    .slide-caption h1{font-size:2.1rem}
+  }
+  @media(max-width:760px){
+    .search{order:3;flex-basis:100%;max-width:none}
+    .menu-toggle{display:block}
+    .mainmenu ul{display:none;flex-direction:column;padding-bottom:10px}
+    .mainmenu ul.open{display:flex}
+    .nav-actions a span,.nav-actions button.linklike span{display:none}
+    .slide img{height:430px}
+    .modal-card{grid-template-columns:1fr}
+    .modal-card .m-img img{min-height:200px;max-height:240px}
+  }
+  @media(max-width:520px){
+    .cat-grid,.product-grid,.trust-grid,.footer-grid,.blog-grid{grid-template-columns:1fr}
+    .slide-caption h1{font-size:1.7rem}.section{padding:50px 0}
+  }
+</style>
 </head>
 <body>
 
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    <style>
-        /* ===== CSS STYLES ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, #8B1538 0%, #5D1028 50%, #3D0818 100%);
-            min-height: 100vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
-            opacity: 0.3;
-            pointer-events: none;
-        }
-
-        /* Navbar */
-        .navbar {
-            padding: 20px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: transparent;
-            transition: all 0.3s ease;
-        }
-
-        .navbar.scrolled {
-            background: rgba(139, 21, 56, 0.95);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            padding: 15px 0;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo h1 {
-            color: #fff;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            color: #FFD700;
-            margin-right: 10px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #FFD700;
-        }
-
-        .cta-btn {
-            background: #FFD700;
-            color: #8B1538 !important;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .cta-btn:hover {
-            background: #FFC700;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .mobile-menu-toggle {
-            display: none;
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        /* Hero Content */
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            text-align: center;
-            padding: 200px 0 100px;
-            color: #fff;
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, #FFD700);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .hero-cta-btn {
-            display: inline-block;
-            background: #FFD700;
-            color: #8B1538;
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.2rem;
-            transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .hero-cta-btn:hover {
-            background: #FFC700;
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
-        }
-
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 60px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-
-        .feature-item i {
-            color: #FFD700;
-            font-size: 1.5rem;
-            transition: transform 0.5s ease;
-        }
-
-        /* Animations */
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .animate-slide-up {
-            animation: slideUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        .animate-fade-in {
-            animation: fadeIn 1s ease-out forwards;
-            opacity: 0;
-        }
-
-        .hero-subtitle {
-            animation-delay: 0.2s;
-        }
-
-        .hero-cta-btn {
-            animation-delay: 0.4s;
-        }
-
-        .hero-features {
-            animation-delay: 0.6s;
-        }
-
-        /* Section Styling */
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: #8B1538;
-            margin-bottom: 15px;
-        }
-
-        .section-header p {
-            font-size: 1.2rem;
-            color: #666;
-        }
-
-        /* Collection Section */
-        .collection-section {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #fff, #FFF5F7);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
-        }
-
-        .product-card {
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.2);
-        }
-
-        .product-link {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-        }
-
-        .product-image {
-            position: relative;
-            overflow: hidden;
-            height: 450px;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.1);
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #FFD700;
-            color: #8B1538;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            z-index: 10;
-        }
-
-        .product-badge.new {
-            background: #4CAF50;
-            color: #fff;
-        }
-
-        .product-badge.premium {
-            background: linear-gradient(135deg, #8B1538, #5D1028, #FFD700);
-            color: #FFD700;
-            background-size: 200% auto;
-            animation: gradient 3s ease infinite;
-        }
-
-        @keyframes gradient {
-            0%, 100% { background-position: 0% center; }
-            50% { background-position: 200% center; }
-        }
-
-        .product-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(139, 21, 56, 0.9), transparent);
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            padding: 30px;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .product-card:hover .product-overlay {
-            opacity: 1;
-        }
-
-        .view-details {
-            color: #fff;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .product-info {
-            padding: 25px;
-        }
-
-        .product-info h3 {
-            font-size: 1.5rem;
-            color: #8B1538;
-            margin-bottom: 10px;
-        }
-
-        .product-info p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .rating {
-            color: #FFD700;
-            font-weight: 600;
-        }
-
-        .rating i {
-            margin-right: 5px;
-        }
-
-        .shop-now {
-            color: #8B1538;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .product-card:hover .shop-now {
-            color: #5D1028;
-        }
-
-        /* Why Section */
-        .why-section {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #8B1538 0%, #5D1028 100%);
-            color: #fff;
-        }
-
-        .why-section .section-header h2 {
-            color: #fff;
-        }
-
-        .why-section .section-header p {
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .why-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .why-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-10px);
-            border-color: #FFD700;
-        }
-
-        .why-icon {
-            font-size: 3rem;
-            color: #FFD700;
-            margin-bottom: 20px;
-        }
-
-        .why-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        .why-card p {
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        /* Styles Section */
-        .styles-section {
-            padding: 100px 0;
-            background: #fff;
-        }
-
-        .styles-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .style-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            height: 400px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .style-image {
-            position: relative;
-            height: 100%;
-        }
-
-        .style-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .style-card:hover .style-image img {
-            transform: scale(1.1);
-        }
-
-        .style-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to top, rgba(139, 21, 56, 0.95), transparent);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 40px;
-            color: #fff;
-            transition: background 0.3s;
-        }
-
-        .style-card:hover .style-overlay {
-            background: linear-gradient(to top, rgba(139, 21, 56, 0.85), rgba(93, 16, 40, 0.5));
-        }
-
-        .style-overlay h3 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        .style-overlay p {
-            margin-bottom: 20px;
-            opacity: 0.9;
-        }
-
-        .explore-btn {
-            display: inline-block;
-            background: #FFD700;
-            color: #8B1538;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.3s;
-            width: fit-content;
-        }
-
-        .style-card:hover .explore-btn {
-            background: #FFC700;
-            transform: translateX(10px);
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #FFF5F7, #fff);
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(139, 21, 56, 0.15);
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            color: #555;
-        }
-
-        .testimonial-author strong {
-            display: block;
-            color: #8B1538;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .testimonial-author span {
-            color: #999;
-        }
-
-        /* CTA Banner */
-        .cta-banner {
-            padding: 100px 0;
-            background: linear-gradient(135deg, #5D1028 0%, #8B1538 50%, #5D1028 100%);
-            color: #fff;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-banner::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 10;
-        }
-
-        .cta-content h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .cta-content p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        .cta-large-btn {
-            display: inline-block;
-            background: #FFD700;
-            color: #8B1538;
-            padding: 25px 60px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.3rem;
-            transition: all 0.3s;
-            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
-        }
-
-        .cta-large-btn:hover {
-            background: #FFC700;
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 50px rgba(255, 215, 0, 0.6);
-        }
-
-        .cta-benefits {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 50px;
-            flex-wrap: wrap;
-        }
-
-        .cta-benefits span {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.1rem;
-        }
-
-        .cta-benefits i {
-            color: #FFD700;
-            font-size: 1.5rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: #1a1a1a;
-            color: #fff;
-            padding: 80px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
-        }
-
-        .footer-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #FFD700;
-        }
-
-        .footer-section p {
-            line-height: 1.8;
-            opacity: 0.8;
-            margin-bottom: 20px;
-        }
-
-        .footer-section ul {
-            list-style: none;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 12px;
-        }
-
-        .footer-section ul li a {
-            color: #fff;
-            text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
-        }
-
-        .footer-section ul li a:hover {
-            opacity: 1;
-            color: #FFD700;
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #FFD700;
-            color: #8B1538;
-            transform: translateY(-5px);
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            outline: none;
-        }
-
-        .newsletter-form input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
-        .newsletter-form button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border: none;
-            background: #FFD700;
-            color: #8B1538;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .newsletter-form button:hover {
-            background: #FFC700;
-            transform: rotate(15deg);
-        }
-
-        .newsletter-form button.success {
-            background: #4CAF50 !important;
-            transform: rotate(0deg) !important;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
-        }
-
-        /* Scroll Animations */
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease-out;
-        }
-
-        .animate-on-scroll.animated {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Mobile Menu Active State */
-        .nav-links.active {
-            display: flex !important;
-            flex-direction: column;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(139, 21, 56, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            z-index: 1000;
-            gap: 20px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-            }
-            
-            .hero-title {
-                font-size: 2.5rem;
-            }
-            
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .hero-features {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            .product-grid,
-            .styles-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .section-header h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-content h2 {
-                font-size: 2rem;
-            }
-            
-            .cta-benefits {
-                flex-direction: column;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
-            
-            .hero-cta-btn,
-            .cta-large-btn {
-                padding: 15px 30px;
-                font-size: 1rem;
-            }
-            
-            .product-card,
-            .style-card {
-                margin-bottom: 20px;
-            }
-        }
-
-        /* Low Performance Mode */
-        body.low-performance * {
-            transition: none !important;
-            animation: none !important;
-            transform: none !important;
-        }
-    </style>
-</head>
-<body>
-    <!-- ===== HTML CONTENT ===== -->
-    <!-- Hero Section -->
-    <header class="hero">
-        <nav class="navbar">
-            <div class="container">
-                <div class="logo">
-                    <h1><i class="fas fa-crown"></i> Burgundy Wedding Suits</h1>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#collection">Collection</a></li>
-                    <li><a href="#styles">Styles</a></li>
-                    <li><a href="#why-burgundy">Why Burgundy</a></li>
-                    <li><a href="#testimonials">Reviews</a></li>
-                    <li><a href="https://inr.deals/PXU1Y6" class="cta-btn" target="_blank">Shop Now</a></li>
-                </ul>
-                <button class="mobile-menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
-        
-        <div class="hero-content">
-            <div class="container">
-                <h2 class="hero-title animate-slide-up">Make Your Wedding Day Unforgettable</h2>
-                <p class="hero-subtitle animate-slide-up">Premium BlackBerrys Burgundy Blazers & Suits for the Modern Groom</p>
-                <a href="https://inr.deals/PXU1Y6" class="hero-cta-btn animate-slide-up" target="_blank">
-                    Explore Collection <i class="fas fa-arrow-right"></i>
-                </a>
-                <div class="hero-features animate-fade-in">
-                    <div class="feature-item">
-                        <i class="fas fa-check-circle"></i>
-                        <span>Premium Quality</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-truck"></i>
-                        <span>Fast Delivery</span>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-star"></i>
-                        <span>Top Rated</span>
-                    </div>
-                </div>
-            </div>
+<div class="topbar">🚚 Free shipping on orders over $50 &nbsp;•&nbsp; 🔁 30-day easy returns &nbsp;•&nbsp; 🔒 Secure checkout</div>
+
+<header>
+  <div class="nav">
+    <a href="#" class="logo">
+      <span class="mark">🛍️</span>
+      <span>Souk Essentials<small>Curated · Quality · Trusted</small></span>
+    </a>
+    <form class="search" onsubmit="return false">
+      <input type="text" placeholder="Search for products, brands and categories…" aria-label="Search">
+      <button type="submit">Search</button>
+    </form>
+    <nav class="nav-actions">
+      <a href="#"><span>Account</span> 👤</a>
+      <a href="#"><span>Wishlist</span> ♥</a>
+      <button class="linklike" onclick="openCart()">🛒 <span>Cart</span> <em class="cart-badge" id="cartCount">0</em></button>
+      <button class="menu-toggle" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+    </nav>
+  </div>
+  <div class="mainmenu">
+    <ul id="menu">
+      <li><a href="#categories">All Categories</a></li>
+      <li><a href="#cat-tech">Tech &amp; Office</a></li>
+      <li><a href="#cat-baby">Baby &amp; Kids</a></li>
+      <li><a href="#cat-beauty">Beauty &amp; Skincare</a></li>
+      <li><a href="#cat-home">Home &amp; Living</a></li>
+      <li><a href="#deals">🔥 Deals</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#newsletter">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="slides" id="slides">
+    <div class="slide">
+      <img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/97ea8ee6-bf6a-4783-b0b8-7288071701c1.png" alt="Tech & Office">
+      <div class="slide-caption"><span class="eyebrow">Tech &amp; Office</span><h1>Work Smarter,<br>Live Connected</h1><p>Discover gadgets, accessories and office essentials that power your everyday productivity.</p><div class="btns"><a href="#cat-tech" class="btn btn-primary">Shop Tech &amp; Office</a><a href="#categories" class="btn btn-outline">Browse All</a></div></div>
+    </div>
+    <div class="slide">
+      <img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af3ef1ff-227c-41f1-9dfd-4d2b3eceb513.png" alt="Baby & Kids">
+      <div class="slide-caption"><span class="eyebrow">Baby &amp; Kids</span><h1>Little Joys,<br>Big Care</h1><p>Gentle, safe and adorable essentials your little ones will love — and you'll trust.</p><div class="btns"><a href="#cat-baby" class="btn btn-primary">Shop Baby &amp; Kids</a><a href="#categories" class="btn btn-outline">Browse All</a></div></div>
+    </div>
+    <div class="slide">
+      <img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/93cd994b-255d-49ef-ba1a-fd772474c25d.png" alt="Beauty & Skincare">
+      <div class="slide-caption"><span class="eyebrow">Beauty &amp; Skincare</span><h1>Glow with<br>Confidence</h1><p>Clean, effective beauty and skincare picks curated to make you feel radiant every day.</p><div class="btns"><a href="#cat-beauty" class="btn btn-primary">Shop Beauty &amp; Skincare</a><a href="#categories" class="btn btn-outline">Browse All</a></div></div>
+    </div>
+    <div class="slide">
+      <img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af7bbf25-76cc-4871-a665-72641ac8ad85.png" alt="Home & Living">
+      <div class="slide-caption"><span class="eyebrow">Home &amp; Living</span><h1>Make Every<br>Space Feel Like Home</h1><p>Stylish, functional pieces to refresh your home and elevate your everyday living.</p><div class="btns"><a href="#cat-home" class="btn btn-primary">Shop Home &amp; Living</a><a href="#categories" class="btn btn-outline">Browse All</a></div></div>
+    </div>
+  </div>
+  <button class="slider-btn prev" onclick="moveSlide(-1)">‹</button>
+  <button class="slider-btn next" onclick="moveSlide(1)">›</button>
+  <div class="dots" id="dots"></div>
+</section>
+
+<div class="trust">
+  <div class="container trust-grid">
+    <div class="trust-item"><span class="ico">🚚</span><div><strong>Free Shipping</strong><small>On orders over $50</small></div></div>
+    <div class="trust-item"><span class="ico">🔁</span><div><strong>Easy Returns</strong><small>30-day money back</small></div></div>
+    <div class="trust-item"><span class="ico">🔒</span><div><strong>Secure Payment</strong><small>100% protected</small></div></div>
+    <div class="trust-item"><span class="ico">💬</span><div><strong>24/7 Support</strong><small>Always here to help</small></div></div>
+  </div>
+</div>
+
+<section class="section" id="categories">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Shop by Category</span><h2>Everything You Need, Curated</h2><p>Four hand-picked collections to cover every corner of your life.</p></div>
+    <div class="cat-grid">
+      <a href="#deals" class="cat-card" id="cat-tech" onclick="filterAndScroll('tech')"><img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/97ea8ee6-bf6a-4783-b0b8-7288071701c1.png" alt="Tech & Office"><div class="cat-overlay"><h3>Tech &amp; Office</h3><span>Shop now →</span></div></a>
+      <a href="#deals" class="cat-card" id="cat-baby" onclick="filterAndScroll('baby')"><img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af3ef1ff-227c-41f1-9dfd-4d2b3eceb513.png" alt="Baby & Kids"><div class="cat-overlay"><h3>Baby &amp; Kids</h3><span>Shop now →</span></div></a>
+      <a href="#deals" class="cat-card" id="cat-beauty" onclick="filterAndScroll('beauty')"><img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/93cd994b-255d-49ef-ba1a-fd772474c25d.png" alt="Beauty & Skincare"><div class="cat-overlay"><h3>Beauty &amp; Skincare</h3><span>Shop now →</span></div></a>
+      <a href="#deals" class="cat-card" id="cat-home" onclick="filterAndScroll('home')"><img src="https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af7bbf25-76cc-4871-a665-72641ac8ad85.png" alt="Home & Living"><div class="cat-overlay"><h3>Home &amp; Living</h3><span>Shop now →</span></div></a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="deals" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">Featured Products</span><h2>Bestsellers &amp; New Arrivals</h2><p>Filter by category to find your essentials faster.</p></div>
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-filter="all">All</button>
+      <button class="tab" data-filter="tech">Tech &amp; Office</button>
+      <button class="tab" data-filter="baby">Baby &amp; Kids</button>
+      <button class="tab" data-filter="beauty">Beauty &amp; Skincare</button>
+      <button class="tab" data-filter="home">Home &amp; Living</button>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="promo"><span class="eyebrow" style="color:var(--accent)">Limited Time</span><h2>Up to 40% Off Essentials Week</h2><p>Stock up on everyday must-haves across all four collections. Offer ends Sunday.</p><a href="#deals" class="btn btn-primary">Grab the Deals</a></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="section" id="blog">
+  <div class="container">
+    <div class="section-head"><span class="eyebrow">From the Journal</span><h2>Tips, Guides &amp; Stories</h2><p>Helpful reads to get the most out of your essentials.</p></div>
+    <div class="blog-grid" id="blogGrid"></div>
+  </div>
+</section>
+
+<section class="section" id="newsletter">
+  <div class="container">
+    <div class="news">
+      <h2>Join the Souk Essentials Family</h2>
+      <p>Get 10% off your first order plus early access to drops and exclusive deals.</p>
+      <form onsubmit="subscribe(event)"><input type="email" placeholder="Enter your email address" required><button class="btn btn-primary" type="submit">Subscribe</button></form>
+      <p id="newsMsg" style="margin-top:14px;color:var(--primary);font-weight:600;display:none">🎉 Welcome aboard! Check your inbox for your 10% code.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-logo"><span class="mark" style="width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--accent));display:grid;place-items:center">🛍️</span> Souk Essentials</div>
+      <p style="max-width:320px;font-size:.9rem">Your trusted marketplace for curated everyday essentials — across Tech &amp; Office, Baby &amp; Kids, Beauty &amp; Skincare and Home &amp; Living.</p>
+      <div class="socials"><a href="#">f</a><a href="#">in</a><a href="#">𝕏</a><a href="#">◎</a></div>
+    </div>
+    <div><h4>Shop</h4><ul><li><a href="#deals" onclick="filterAndScroll('tech')">Tech &amp; Office</a></li><li><a href="#deals" onclick="filterAndScroll('baby')">Baby &amp; Kids</a></li><li><a href="#deals" onclick="filterAndScroll('beauty')">Beauty &amp; Skincare</a></li><li><a href="#deals" onclick="filterAndScroll('home')">Home &amp; Living</a></li></ul></div>
+    <div><h4>Help</h4><ul><li><a href="#">Shipping Info</a></li><li><a href="#">Returns &amp; Refunds</a></li><li><a href="#">Track Order</a></li><li><a href="#">FAQs</a></li></ul></div>
+    <div><h4>Company</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Careers</a></li><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms of Service</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">© 2024 Souk Essentials. All rights reserved. &nbsp;•&nbsp; Made with care for everyday living.</div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+<!-- CART DRAWER -->
+<aside class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h3>Your Cart 🛒</h3><button class="close-x" onclick="closeAll()">×</button></div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="drawer-foot" id="cartFoot">
+    <div class="sub-row"><span>Subtotal</span><span id="subtotal">$0.00</span></div>
+    <div class="sub-row"><span>Shipping</span><span id="shipping">Free</span></div>
+    <div class="total-row"><span>Total</span><span id="total">$0.00</span></div>
+    <button class="btn btn-primary btn-full" onclick="checkout()">Proceed to Checkout</button>
+  </div>
+</aside>
+
+<!-- PRODUCT MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <div class="m-img"><img id="mImg" src="" alt=""></div>
+    <div class="m-body">
+      <button class="close-x" style="float:right" onclick="closeModal()">×</button>
+      <span class="product-cat" id="mCat"></span>
+      <h2 id="mName"></h2>
+      <div class="stars" id="mStars"></div>
+      <div class="m-price" id="mPrice"></div>
+      <p class="desc" id="mDesc"></p>
+      <ul class="m-feats" id="mFeats"></ul>
+      <button class="btn btn-primary btn-full" id="mAdd">Add to Cart</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* SLIDER */
+let current=0;
+const slidesEl=document.getElementById('slides');
+const total=slidesEl.children.length;
+const dotsWrap=document.getElementById('dots');
+for(let i=0;i<total;i++){const d=document.createElement('div');d.className='dot'+(i===0?' active':'');d.onclick=()=>goToSlide(i);dotsWrap.appendChild(d);}
+function render(){slidesEl.style.transform=`translateX(-${current*100}%)`;document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===current));}
+function moveSlide(dir){current=(current+dir+total)%total;render();}
+function goToSlide(i){current=i;render();}
+let auto=setInterval(()=>moveSlide(1),5500);
+slidesEl.addEventListener('mouseenter',()=>clearInterval(auto));
+slidesEl.addEventListener('mouseleave',()=>auto=setInterval(()=>moveSlide(1),5500));
+
+/* DATA */
+const products=[
+  {id:1,cat:'tech',label:'Tech & Office',name:'Wireless Noise-Cancel Headphones',price:89.99,old:119.99,rating:5,reviews:142,tag:'Sale',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/97ea8ee6-bf6a-4783-b0b8-7288071701c1.png',desc:'Immersive sound with active noise cancellation, 40-hour battery life and plush memory-foam ear cushions for all-day comfort.',feats:['Active noise cancellation','40-hour battery life','Bluetooth 5.3 multipoint','Built-in mic for calls']},
+  {id:2,cat:'tech',label:'Tech & Office',name:'Ergonomic Desk Organizer Set',price:34.50,old:null,rating:4,reviews:58,tag:'New',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/97ea8ee6-bf6a-4783-b0b8-7288071701c1.png',desc:'Keep your workspace tidy and inspired with this modular bamboo desk organizer set built for productivity.',feats:['Sustainable bamboo build','Modular compartments','Phone & pen holders','Cable management slot']},
+  {id:3,cat:'baby',label:'Baby & Kids',name:'Soft Organic Cotton Onesie',price:19.99,old:24.99,rating:5,reviews:97,tag:'Sale',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af3ef1ff-227c-41f1-9dfd-4d2b3eceb513.png',desc:'Ultra-soft, breathable 100% organic cotton onesie that is gentle on delicate skin and easy to change.',feats:['100% GOTS organic cotton','Hypoallergenic & breathable','Easy snap closures','Machine washable']},
+  {id:4,cat:'baby',label:'Baby & Kids',name:'Wooden Stacking Toy Set',price:27.00,old:null,rating:4,reviews:64,tag:'New',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af3ef1ff-227c-41f1-9dfd-4d2b3eceb513.png',desc:'A colorful, non-toxic wooden stacking set that builds motor skills and sparks imaginative play.',feats:['Non-toxic water-based paint','Smooth sanded edges','Develops motor skills','Ages 1+']},
+  {id:5,cat:'beauty',label:'Beauty & Skincare',name:'Hydrating Vitamin-C Serum',price:42.00,old:55.00,rating:5,reviews:211,tag:'Sale',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/93cd994b-255d-49ef-ba1a-fd772474c25d.png',desc:'A brightening, antioxidant-rich serum that boosts radiance, evens skin tone and deeply hydrates.',feats:['15% Vitamin C + Hyaluronic Acid','Brightens & evens tone','Cruelty-free & vegan','Suitable for all skin types']},
+  {id:6,cat:'beauty',label:'Beauty & Skincare',name:'Gentle Daily Cleansing Foam',price:23.50,old:null,rating:4,reviews:88,tag:'New',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/93cd994b-255d-49ef-ba1a-fd772474c25d.png',desc:'A pH-balanced foaming cleanser that removes impurities without stripping your skin of moisture.',feats:['pH-balanced formula','Removes makeup & dirt','Fragrance-free','Dermatologist tested']},
+  {id:7,cat:'home',label:'Home & Living',name:'Linen Throw Pillow Cover Set',price:31.99,old:39.99,rating:5,reviews:73,tag:'Sale',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af7bbf25-76cc-4871-a665-72641ac8ad85.png',desc:'Refresh your sofa with this set of soft, breathable linen pillow covers in warm neutral tones.',feats:['Set of 2 covers','Pure stonewashed linen','Hidden zipper closure','Fits 18"×18" inserts']},
+  {id:8,cat:'home',label:'Home & Living',name:'Ceramic Aroma Diffuser',price:48.00,old:null,rating:4,reviews:120,tag:'New',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af7bbf25-76cc-4871-a665-72641ac8ad85.png',desc:'A minimalist ceramic ultrasonic diffuser that fills your home with calming aromas and soft ambient light.',feats:['Ultrasonic mist technology','7-color ambient light','Auto shut-off','Whisper-quiet operation']}
+];
+
+const blogPosts=[
+  {cat:'Tech & Office',title:'5 Desk Setup Ideas to Boost Your Productivity',excerpt:'Small tweaks to your workspace can make a big difference. Here are our favorite ways to stay organized and focused.',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/97ea8ee6-bf6a-4783-b0b8-7288071701c1.png',date:'Jun 12, 2024'},
+  {cat:'Beauty & Skincare',title:'Building a Simple, Effective Skincare Routine',excerpt:'Cut through the noise. We break down a 3-step routine that actually works for healthy, glowing skin.',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/93cd994b-255d-49ef-ba1a-fd772474c25d.png',date:'Jun 6, 2024'},
+  {cat:'Home & Living',title:'Cozy Up: Affordable Ways to Refresh Your Space',excerpt:'From throw pillows to ambient lighting, discover budget-friendly touches that make your home feel brand new.',img:'https://novellum-filestore-mcp.s3.us-east-2.amazonaws.com/atxp:atxp_acct_qwcTch4mQIrHNfTZKmJt1/af7bbf25-76cc-4871-a665-72641ac8ad85.png',date:'May 28, 2024'}
+];
+
+/* RENDER PRODUCTS */
+const grid=document.getElementById('productGrid');
+function stars(n){return '★'.repeat(n)+'☆'.repeat(5-n);}
+function renderProducts(filter='all'){
+  grid.innerHTML='';
+  products.filter(p=>filter==='all'||p.cat===filter).forEach(p=>{
+    grid.innerHTML+=`
+    <div class="product">
+      <div class="product-img" onclick="openModal(${p.id})">
+        <span class="tag ${p.tag==='New'?'new':''}">${p.tag}</span>
+        <button class="wish" title="Add to wishlist" onclick="event.stopPropagation();toast('Added to wishlist ♥')">♡</button>
+        <img src="${p.img}" alt="${p.name}">
+      </div>
+      <div class="product-body">
+        <span class="product-cat">${p.label}</span>
+        <h4 onclick="openModal(${p.id})">${p.name}</h4>
+        <div class="stars">${stars(p.rating)} <small>(${p.reviews})</small></div>
+        <div class="price-row">
+          <div class="price">$${p.price.toFixed(2)} ${p.old?`<del>$${p.old.toFixed(2)}</del>`:''}</div>
+          <button class="add-btn" onclick="addToCart(${p.id})">Add +</button>
         </div>
-    </header>
+      </div>
+    </div>`;
+  });
+}
+renderProducts();
 
-    <!-- Collection Grid Section -->
-    <section id="collection" class="collection-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Premium Burgundy Collection</h2>
-                <p>Handpicked blazers and suits that make a statement</p>
-            </div>
-            
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/35DZwfyd/imgi-19-Formal-Wine-Textured-Blazer-Venue-CJ002397-E1-image1-1000x.jpg" alt="Formal Wine Textured Blazer Venue">
-                            <div class="product-badge">Bestseller</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Classic Burgundy Blazer</h3>
-                            <p>Timeless elegance for your special day</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 4.8</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+/* RENDER BLOG */
+const blogGrid=document.getElementById('blogGrid');
+blogPosts.forEach(b=>{
+  blogGrid.innerHTML+=`
+  <article class="post">
+    <div class="post-img"><img src="${b.img}" alt="${b.title}"></div>
+    <div class="post-body">
+      <span class="post-meta">${b.cat} · ${b.date}</span>
+      <h3>${b.title}</h3>
+      <p>${b.excerpt}</p>
+      <a href="#" class="read" onclick="toast('Full article coming soon!');return false;">Read more →</a>
+    </div>
+  </article>`;
+});
 
-                <!-- Product 2 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/DfgLkr6t/imgi-18-Formal-Maroon-Textured-Blazer-Rismo-CJ002587-R2-image1-1000x.jpg" alt="Formal Maroon Textured Blazer Rismo">
-                            <div class="product-badge new">New</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Slim Fit Wedding Suit</h3>
-                            <p>Modern cut, perfect fit</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 4.9</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+/* TABS */
+document.querySelectorAll('.tab').forEach(t=>{
+  t.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));t.classList.add('active');renderProducts(t.dataset.filter);};
+});
+function filterAndScroll(cat){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x.dataset.filter===cat));
+  renderProducts(cat);
+  setTimeout(()=>document.getElementById('deals').scrollIntoView({behavior:'smooth'}),50);
+}
 
-                <!-- Product 3 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/V0qRj3DH/imgi-13-techpro-formal-green-solid-blazer-sein-1-0694a6cc-37e0-4452-8a8c-e022f64fcd6e-1000x.jpg" alt="Techpro Formal Green Solid Blazer">
-                            <div class="product-badge premium">Premium</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Premium Velvet Blazer</h3>
-                            <p>Luxurious texture, stunning appearance</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 5.0</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Product 4 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/JR6qhWXr/imgi-15-textured-formal-blazer-in-navy-japson-blackberrys-clothing-1-6fbfaa1c-0f04-4fb1-addf-109d8c2.jpg" alt="Textured Formal Blazer in Navy">
-                            <div class="product-badge">Popular</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>3-Piece Wedding Ensemble</h3>
-                            <p>Complete look with vest included</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 4.9</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Product 5 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/60ZKPKMm/imgi-20-textured-formal-blazer-in-black-japson-blackberrys-clothing-1-1000x.jpg" alt="Textured Formal Blazer in Black">
-                            <div class="product-badge">Trending</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Double Breasted Blazer</h3>
-                            <p>Bold statement, classic style</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 4.7</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-
-                <!-- Product 6 -->
-                <div class="product-card animate-on-scroll">
-                    <a href="https://inr.deals/PXU1Y6" target="_blank" class="product-link">
-                        <div class="product-image">
-                            <img src="https://i.ibb.co/XxJz2gq7/imgi-12-Techpro-Formal-Navy-Textured-Blazer-Maspar-CJPM2332-N1-BS24-FL-image7-1000x.jpg" alt="Techpro Formal Navy Textured Blazer">
-                            <div class="product-badge premium">Exclusive</div>
-                            <div class="product-overlay">
-                                <span class="view-details">View Details <i class="fas fa-arrow-right"></i></span>
-                            </div>
-                        </div>
-                        <div class="product-info">
-                            <h3>Tuxedo Style Suit</h3>
-                            <p>Ultimate sophistication</p>
-                            <div class="product-meta">
-                                <span class="rating"><i class="fas fa-star"></i> 4.8</span>
-                                <span class="shop-now">Shop Now <i class="fas fa-external-link-alt"></i></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
+/* CART */
+let cart=[];
+function addToCart(id){
+  const p=products.find(x=>x.id===id);
+  const line=cart.find(x=>x.id===id);
+  if(line)line.qty++;else cart.push({...p,qty:1});
+  updateCart();toast(`${p.name} added to cart ✓`);
+}
+function changeQty(id,delta){
+  const line=cart.find(x=>x.id===id);
+  if(!line)return;
+  line.qty+=delta;
+  if(line.qty<=0)cart=cart.filter(x=>x.id!==id);
+  updateCart();
+}
+function removeItem(id){cart=cart.filter(x=>x.id!==id);updateCart();}
+function updateCart(){
+  const count=cart.reduce((s,x)=>s+x.qty,0);
+  document.getElementById('cartCount').textContent=count;
+  const wrap=document.getElementById('cartItems');
+  const foot=document.getElementById('cartFoot');
+  if(cart.length===0){
+    wrap.innerHTML='<div class="cart-empty">🛒<br><br>Your cart is empty.<br>Start adding some essentials!</div>';
+    foot.style.display='none';return;
+  }
+  foot.style.display='block';
+  wrap.innerHTML=cart.map(x=>`
+    <div class="cart-row">
+      <img src="${x.img}" alt="${x.name}">
+      <div class="cart-info">
+        <span class="c-cat">${x.label}</span>
+        <h5>${x.name}</h5>
+        <div class="qty">
+          <button onclick="changeQty(${x.id},-1)">−</button>
+          <span>${x.qty}</span>
+          <button onclick="changeQty(${x.id},1)">+</button>
         </div>
-    </section>
+        <button class="remove" onclick="removeItem(${x.id})">Remove</button>
+      </div>
+      <div class="c-price">$${(x.price*x.qty).toFixed(2)}</div>
+    </div>`).join('');
+  const sub=cart.reduce((s,x)=>s+x.price*x.qty,0);
+  const ship=sub>50||sub===0?0:5.99;
+  document.getElementById('subtotal').textContent='$'+sub.toFixed(2);
+  document.getElementById('shipping').textContent=ship===0?'Free':'$'+ship.toFixed(2);
+  document.getElementById('total').textContent='$'+(sub+ship).toFixed(2);
+}
+function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('overlay').classList.add('show');}
+function checkout(){if(cart.length===0)return;toast('🎉 Order placed! Thank you for shopping with us.');cart=[];updateCart();setTimeout(closeAll,800);}
 
-    <!-- Why Burgundy Section -->
-    <section id="why-burgundy" class="why-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Why Choose Burgundy?</h2>
-                <p>The perfect color for your special occasion</p>
-            </div>
-            
-            <div class="why-grid">
-                <div class="why-card animate-on-scroll">
-                    <div class="why-icon">
-                        <i class="fas fa-palette"></i>
-                    </div>
-                    <h3>Sophisticated & Unique</h3>
-                    <p>Stand out from traditional black and navy. Burgundy adds a rich, elegant touch that's both classic and contemporary.</p>
-                </div>
-                
-                <div class="why-card animate-on-scroll">
-                    <div class="why-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <h3>Perfect for Weddings</h3>
-                    <p>Burgundy symbolizes passion and luxury, making it ideal for romantic occasions and creating stunning photo memories.</p>
-                </div>
-                
-                <div class="why-card animate-on-scroll">
-                    <div class="why-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3>Year-Round Versatility</h3>
-                    <p>Works beautifully in any season - from spring garden parties to elegant winter celebrations.</p>
-                </div>
-                
-                <div class="why-card animate-on-scroll">
-                    <div class="why-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3>Flatters All Skin Tones</h3>
-                    <p>Burgundy is universally flattering, complementing a wide range of complexions and wedding color schemes.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+/* MODAL */
+function openModal(id){
+  const p=products.find(x=>x.id===id);
+  document.getElementById('mImg').src=p.img;
+  document.getElementById('mCat').textContent=p.label;
+  document.getElementById('mName').textContent=p.name;
+  document.getElementById('mStars').innerHTML=stars(p.rating)+` <small>(${p.reviews} reviews)</small>`;
+  document.getElementById('mPrice').innerHTML=`$${p.price.toFixed(2)} ${p.old?`<del>$${p.old.toFixed(2)}</del>`:''}`;
+  document.getElementById('mDesc').textContent=p.desc;
+  document.getElementById('mFeats').innerHTML=p.feats.map(f=>`<li>${f}</li>`).join('');
+  document.getElementById('mAdd').onclick=()=>{addToCart(id);closeModal();openCart();};
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');document.getElementById('overlay').classList.remove('show');}
+function closeAll(){document.getElementById('cartDrawer').classList.remove('open');closeModal();}
 
-    <!-- Styles Section -->
-    <section id="styles" class="styles-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Find Your Perfect Style</h2>
-                <p>From classic to contemporary</p>
-            </div>
-            
-            <div class="styles-grid">
-                <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
-                    <div class="style-image">
-                        <img src="https://i.ibb.co/r2K3CXfp/imgi-17-Formal-Grey-Textured-Blazer-Morris-CJ002383-G1-image1-1000x.jpg" alt="Formal Grey Textured Blazer Morris">
-                        <div class="style-overlay">
-                            <h3>Classic Elegance</h3>
-                            <p>Timeless designs for traditional weddings</p>
-                            <span class="explore-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
-                    <div class="style-image">
-                        <img src="https://i.ibb.co/7tJ2tkpS/imgi-21-Formal-Light-Grey-Textured-Blazer-Jacobs-CJ002480-G1-image1-1000x.jpg" alt="Formal Light Grey Textured Blazer Jacobs">
-                        <div class="style-overlay">
-                            <h3>Modern Sophistication</h3>
-                            <p>Contemporary cuts for the modern groom</p>
-                            <span class="explore-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="https://inr.deals/PXU1Y6" target="_blank" class="style-card animate-on-scroll">
-                    <div class="style-image">
-                        <img src="https://i.ibb.co/HpghV2SY/imgi-89-FUTURA-BLAZER-1-f03a3f55-3528-49f3-a94d-612a0a532b82.jpg" alt="FUTURA BLAZER">
-                        <div class="style-overlay">
-                            <h3>Smart Casual</h3>
-                            <p>Relaxed yet refined for informal events</p>
-                            <span class="explore-btn">Explore <i class="fas fa-arrow-right"></i></span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
+/* TOAST */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2200);
+}
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>What Our Customers Say</h2>
-                <p>Real reviews from real weddings</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"The burgundy blazer was absolutely perfect for my wedding! The quality exceeded my expectations and I received so many compliments. BlackBerrys really knows how to make a groom look special."</p>
-                    <div class="testimonial-author">
-                        <strong>Rahul M.</strong>
-                        <span>Mumbai</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Bought the 3-piece suit for my best friend's wedding. The fit was impeccable and the burgundy color looked stunning in photos. Highly recommend!"</p>
-                    <div class="testimonial-author">
-                        <strong>Arjun S.</strong>
-                        <span>Bangalore</span>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card animate-on-scroll">
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <p>"Premium quality at great value! The velvet blazer made me feel like royalty. Perfect choice for a winter wedding. Will definitely buy from BlackBerrys again!"</p>
-                    <div class="testimonial-author">
-                        <strong>Vikram P.</strong>
-                        <span>Delhi</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+/* NEWSLETTER */
+function subscribe(e){e.preventDefault();document.getElementById('newsMsg').style.display='block';e.target.reset();}
 
-    <!-- CTA Banner -->
-    <section class="cta-banner">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Find Your Perfect Burgundy Suit?</h2>
-                <p>Explore our complete collection and make your wedding day unforgettable</p>
-                <a href="https://inr.deals/PXU1Y6" class="cta-large-btn" target="_blank">
-                    Shop BlackBerrys Collection Now <i class="fas fa-shopping-bag"></i>
-                </a>
-                <div class="cta-benefits">
-                    <span><i class="fas fa-shield-alt"></i> 100% Authentic</span>
-                    <span><i class="fas fa-sync"></i> Easy Returns</span>
-                    <span><i class="fas fa-headset"></i> 24/7 Support</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-crown"></i> Burgundy Wedding Suits</h3>
-                    <p>Your destination for premium BlackBerrys burgundy blazers and wedding suits. Making grooms look their absolute best since day one.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-pinterest"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#collection">Collection</a></li>
-                        <li><a href="#styles">Styles</a></li>
-                        <li><a href="#why-burgundy">Why Burgundy</a></li>
-                        <li><a href="https://inr.deals/PXU1Y6" target="_blank">Shop Now</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Customer Care</h4>
-                    <ul>
-                        <li><a href="https://inr.deals/PXU1Y6" target="_blank">Size Guide</a></li>
-                        <li><a href="https://inr.deals/PXU1Y6" target="_blank">Shipping Info</a></li>
-                        <li><a href="https://inr.deals/PXU1Y6" target="_blank">Returns</a></li>
-                        <li><a href="https://inr.deals/PXU1Y6" target="_blank">Contact Us</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Newsletter</h4>
-                    <p>Get exclusive deals and wedding style tips</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email" required>
-                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; 2024 Burgundy Wedding Suits. All rights reserved. Affiliate partner of BlackBerrys.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- ===== JAVASCRIPT ===== -->
-    <script>
-        // Wait for DOM to be fully loaded
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('%c🎩 Burgundy Wedding Suits 🎩', 'font-size: 20px; font-weight: bold; color: #8B1538;');
-            console.log('%cPromoting premium BlackBerrys blazers', 'font-size: 14px; color: #FFD700;');
-            console.log('%cAffiliate Link: https://inr.deals/PXU1Y6', 'font-size: 12px; color: #666;');
-
-            // ===== SMOOTH SCROLLING =====
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-
-            // ===== SCROLL ANIMATION OBSERVER =====
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animated');
-                    }
-                });
-            }, observerOptions);
-
-            // Observe all elements with animate-on-scroll class
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            animatedElements.forEach(el => observer.observe(el));
-
-            // ===== MOBILE MENU TOGGLE =====
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-
-            if (mobileMenuToggle && navLinks) {
-                mobileMenuToggle.addEventListener('click', () => {
-                    navLinks.classList.toggle('active');
-                    
-                    // Toggle icon
-                    const icon = mobileMenuToggle.querySelector('i');
-                    if (icon.classList.contains('fa-bars')) {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-times');
-                    } else {
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    }
-                });
-
-                // Close menu when clicking a link
-                navLinks.querySelectorAll('a').forEach(link => {
-                    link.addEventListener('click', () => {
-                        navLinks.classList.remove('active');
-                        const icon = mobileMenuToggle.querySelector('i');
-                        icon.classList.remove('fa-times');
-                        icon.classList.add('fa-bars');
-                    });
-                });
-            }
-
-            // ===== NEWSLETTER FORM HANDLER =====
-            const newsletterForm = document.querySelector('.newsletter-form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = newsletterForm.querySelector('input[type="email"]').value;
-                    
-                    if (email && email.includes('@')) {
-                        // Show success message
-                        const button = newsletterForm.querySelector('button');
-                        const originalHTML = button.innerHTML;
-                        button.innerHTML = '<i class="fas fa-check"></i>';
-                        button.classList.add('success');
-                        
-                        // Reset after 2 seconds
-                        setTimeout(() => {
-                            button.innerHTML = originalHTML;
-                            button.classList.remove('success');
-                            newsletterForm.reset();
-                        }, 2000);
-                    }
-                });
-            }
-
-            // ===== NAVBAR SCROLL EFFECT =====
-            const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', () => {
-                const currentScroll = window.pageYOffset;
-                
-                if (currentScroll > 100) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-
-            // ===== PARALLAX EFFECT ON HERO SECTION =====
-            window.addEventListener('scroll', () => {
-                const scrolled = window.pageYOffset;
-                const heroContent = document.querySelector('.hero-content');
-                if (heroContent && scrolled < window.innerHeight) {
-                    heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-                    heroContent.style.opacity = 1 - (scrolled / 500);
-                }
-            });
-
-            // ===== CARD CLICK FEEDBACK =====
-            document.querySelectorAll('.product-card, .style-card').forEach(card => {
-                card.addEventListener('click', (e) => {
-                    if (!e.target.closest('a[target="_blank"]')) {
-                        // Add a subtle animation feedback
-                        card.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            card.style.transform = '';
-                        }, 150);
-                    }
-                });
-            });
-
-            // ===== BUTTON HOVER EFFECTS =====
-            document.querySelectorAll('.cta-btn, .hero-cta-btn, .cta-large-btn').forEach(button => {
-                button.addEventListener('mouseenter', () => {
-                    button.style.transform = 'scale(1.05)';
-                });
-                
-                button.addEventListener('mouseleave', () => {
-                    button.style.transform = '';
-                });
-            });
-
-            // ===== FLOATING ANIMATION FOR HERO ICONS =====
-            const floatAnimation = () => {
-                const featureItems = document.querySelectorAll('.feature-item i');
-                featureItems.forEach((item, index) => {
-                    setInterval(() => {
-                        item.style.transform = 'translateY(-5px)';
-                        setTimeout(() => {
-                            item.style.transform = 'translateY(0)';
-                        }, 500);
-                    }, 2000 + (index * 300));
-                });
-            };
-
-            // Call float animation after page load
-            window.addEventListener('load', floatAnimation);
-
-            // ===== AFFILIATE LINK TRACKING =====
-            document.querySelectorAll('a[href*="inr.deals"]').forEach(link => {
-                link.addEventListener('click', () => {
-                    // Add visual feedback
-                    link.style.opacity = '0.7';
-                    setTimeout(() => {
-                        link.style.opacity = '1';
-                    }, 200);
-                });
-            });
-
-            // ===== PERFORMANCE OPTIMIZATION =====
-            if (navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4) {
-                document.body.classList.add('low-performance');
-            }
-
-            // ===== TESTIMONIAL ROTATION EFFECT =====
-            let currentTestimonial = 0;
-            const testimonialCards = document.querySelectorAll('.testimonial-card');
-
-            if (testimonialCards.length > 0) {
-                setInterval(() => {
-                    testimonialCards.forEach((card, index) => {
-                        if (index === currentTestimonial) {
-                            card.style.transform = 'scale(1.05)';
-                            card.style.boxShadow = '0 25px 60px rgba(139, 21, 56, 0.25)';
-                        } else {
-                            card.style.transform = '';
-                            card.style.boxShadow = '';
-                        }
-                    });
-                    
-                    currentTestimonial = (currentTestimonial + 1) % testimonialCards.length;
-                }, 4000);
-            }
-
-            // ===== INITIAL SCROLL TRIGGER =====
-            // Trigger scroll event once to set initial states
-            window.dispatchEvent(new Event('scroll'));
-        });
-    </script>
+updateCart();
+</script>
 </body>
 </html>
